@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+// route utama
 Route::get('/', function () {
     return view('welcome');
 });
