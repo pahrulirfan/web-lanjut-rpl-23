@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SupplierController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/category', [CategoryController::class, 'tampil'])->name('category-index');
@@ -8,6 +9,8 @@ Route::get('/category', [CategoryController::class, 'tampil'])->name('category-i
 Route::get('/category/create', [CategoryController::class, 'tambah'])->name('category-create');
 
 Route::post('/category/store', [CategoryController::class, 'simpan'])->name('category-store');
+
+Route::resource('/supplier', SupplierController::class);
 
 
 Route::get('/dashboard', function () {
@@ -25,10 +28,10 @@ Route::get('/mahasiswa/{fakultas}', function ($fakultas) {
     $array = ['Risa', 'Ari'];
 
     return view('universitas.mahasiswas')
-            ->with([
-                'mhs' => $array,
-                'fk' => $fakultas
-            ]);
+        ->with([
+            'mhs' => $array,
+            'fk' => $fakultas
+        ]);
 
 });
 
