@@ -4,7 +4,7 @@
 
 <div class="container px-4 mt-4">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-9">
 
             <a href="{{ route('category-create') }}" class="btn btn-primary mb-3">
                 <i class="fas fa-plus"></i> Tambah Data
@@ -24,12 +24,21 @@
                         </thead>
                         <tbody>
                             @foreach($data as $row)
-                                <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $row->name }}</td>
-                                    <td>{{ $row->created_at }}</td>
-                                    <td>Update | Delete</td>
-                                </tr>
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $row->name }}</td>
+                                <td>{{ $row->created_at }}</td>
+                                <td>
+                                    <form method="POST" action="{{ route('category-delete', $row->id) }}">
+                                        @csrf
+                                        @method('delete')
+                                        <input type="submit" value="Del" class="btn btn-danger">
+
+                                        <a href="{{ route('category-edit', $row->id) }}"
+                                            class="btn btn-warning">Edit</a>
+                                    </form>
+                                </td>
+                            </tr>
                             @endforeach
                         </tbody>
                     </table>
@@ -38,6 +47,5 @@
         </div>
     </div>
 </div>
-
 
 @endsection
