@@ -10,6 +10,12 @@ Route::get('/category/create', [CategoryController::class, 'tambah'])->name('cat
 
 Route::post('/category/store', [CategoryController::class, 'simpan'])->name('category-store');
 
+Route::delete('/category/{id}/delete', [CategoryController::class, 'delete'])->name('category-delete');
+
+Route::get('/category/{id}/edit', [CategoryController::class, 'edit'])->name('category-edit');
+
+Route::patch('/category/{id}/update', [CategoryController::class, 'update'])->name('category-update');
+
 Route::resource('/supplier', SupplierController::class);
 
 

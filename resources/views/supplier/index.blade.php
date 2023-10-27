@@ -32,7 +32,16 @@
                                 <td>{{ $row->nama_ketua }}</td>
                                 <td>{{ $row->nomor_kontak }}</td>
                                 <td>{{ $row->alamat }}</td>
-                                <td>Update | Delete</td>
+                                <td>
+                                    <form method="POST" action="{{ route('supplier.destroy', $row->id) }}">
+                                        @csrf
+                                        @method('delete')
+                                        <input type="submit" value="Del" class="btn btn-danger">
+
+                                        <a href="{{ route('supplier.edit', $row->id) }}"
+                                            class="btn btn-warning">Edit</a>
+                                    </form>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>
