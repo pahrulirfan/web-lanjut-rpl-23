@@ -4,5 +4,5 @@
 
 - Buka terminal, masuk ke root folder project, jika menggunakan terminal laragon, maka default root folder di laravel/www. sesuaikan dengan environtment komputer masing - masing
 - copy url
-- ketikkan perintah di terminal -> git clone https://github.com/pahrulirfan/web-lanjut-rpl-23
-- setelah proses selesai, masuk ke folder web-lanjut-rpl-23 dengan menggunakan perintah -> cd web-lanjut-rpl-23
+- ketikkan perintah di terminal -> ```git clone https://github.com/pahrulirfan/web-lanjut-rpl-23```
+- setelah proses selesai, masuk ke folder web-lanjut-rpl-23 dengan menggunakan perintah -> ```cd web-lanjut-rpl-23```
