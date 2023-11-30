@@ -1,8 +1,16 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\LatihanController;
 use App\Http\Controllers\SupplierController;
 use Illuminate\Support\Facades\Route;
+
+// Route untuk latihan
+Route::get("/latihan", [LatihanController::class, "index"])->name("l.index");
+
+
+
+
 
 Route::get('/category', [CategoryController::class, 'tampil'])->name('category-index');
 
