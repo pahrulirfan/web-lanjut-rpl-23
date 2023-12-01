@@ -9,6 +9,11 @@
                     Dashboard
                 </a>
 
+                <a class="nav-link" href="{{ route('products.index') }}">
+                    <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                    Product
+                </a>
+
                 <a class="nav-link" href="{{ route('category-index') }}">
                     <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                     Category

@@ -13,8 +13,6 @@ class CategoryController extends Controller
 
         $data = Category::all();
 
-        // dd($data);
-
         return view('category.index', compact('data'));
     }
 
@@ -28,7 +26,7 @@ class CategoryController extends Controller
 
         $request->validate([
 
-            'name' => 'required|min:5'
+            'name' => 'required|min:3'
 
         ]);
         Category::create($request->all());

@@ -2,8 +2,13 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LatihanController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SupplierController;
 use Illuminate\Support\Facades\Route;
+
+// route products
+Route::resource('products', ProductController::class);
+
 
 // Route untuk latihan
 Route::get("/latihan", [LatihanController::class, "index"])->name("l.index");
@@ -23,6 +28,7 @@ Route::delete('/category/{id}/delete', [CategoryController::class, 'delete'])->n
 Route::get('/category/{id}/edit', [CategoryController::class, 'edit'])->name('category-edit');
 
 Route::patch('/category/{id}/update', [CategoryController::class, 'update'])->name('category-update');
+
 
 Route::resource('/supplier', SupplierController::class);
 
