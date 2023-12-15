@@ -2,22 +2,29 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LatihanController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SupplierController;
 use Illuminate\Support\Facades\Route;
 
+
+
+//route login dan logout
+
+Route::get('login', [LoginController::class, 'index'])->name('login');
+Route::post('login-post', [LoginController::class, 'authenticate'])->name('login.post');
+
+Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+
 // route products
-Route::resource('products', ProductController::class);
+Route::resource('products', ProductController::class)->middleware('auth');
 
 
 // Route untuk latihan
-Route::get("/latihan", [LatihanController::class, "index"])->name("l.index");
+Route::get("/latihan", [LatihanController::class, "index"])->name("l.index")->middleware('auth');
 
 
-
-
-
-Route::get('/category', [CategoryController::class, 'tampil'])->name('category-index');
+Route::get('/category', [CategoryController::class, 'tampil'])->name('category-index')->middleware('auth');
 
 Route::get('/category/create', [CategoryController::class, 'tambah'])->name('category-create');
 
@@ -35,7 +42,7 @@ Route::resource('/supplier', SupplierController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->name('dashboard');
+})->name('dashboard')->middleware('auth');
 
 
 // route utama
